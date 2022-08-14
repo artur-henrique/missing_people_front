@@ -21,13 +21,14 @@
                         <a id="a-home" class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <button id="a-add" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button id="a-add" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
                             Adicionar
                         </button>
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Search person name" aria-label="Search">
                     <button class="btn btn-light" type="submit">Search</button>
                 </form>
             </div>
@@ -39,14 +40,86 @@
     <div id="exampleModal" class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Cadastrar pessoa desaparecida</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
                 <div class="modal-body">
                     <form action="api/post" method="post">
-                        <label for="name">Nome Completo: </label>
-                        <input id="name" type="text" name="fullName">
+                        <fieldset>
+                            <div class="modal-header">
+                                <legend class="modal-title">Cadastro de pessoa desaparecida</legend>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <p>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Nome completo</label>
+                            </div>
+                            </p>
+                            <p>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Data de nascimento</label>
+                            </div>
+                            </p>
+                            <p>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Data de desaparecimento</label>
+                            </div>
+                            </p>
+
+                            <p>
+                            <div class="row g-2">
+                                <div class="col-md">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="floatingInputGrid"
+                                            placeholder="Ex: Curitiba">
+                                        <label for="floatingInputGrid">Cidade</label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="floatingSelectGrid"
+                                            aria-label="Floating label select example">
+                                            <option selected></option>
+                                            <option value="Acre">Acre</option>
+                                            <option value="Alagoas">Alagoas</option>
+                                            <option value="Amapá">Amapá</option>
+                                            <option value="Amazonas">Amazonas</option>
+                                            <option value="Bahia">Bahia</option>
+                                            <option value="Ceará">Ceará</option>
+                                            <option value="Distrito Federal">Distrito</option>
+                                            <option value="Espirito Santo">Espirito</option>
+                                            <option value="Goiás">Goiás</option>
+                                            <option value="Maranhão">Maranhão</option>
+                                            <option value="Mato Grosso">Mato Grosso</option>
+                                            <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                            <option value="Minas Gerais">Minas Gerais</option>
+                                            <option value="Pará">Pará</option>
+                                            <option value="Paraíba">Paraíba</option>
+                                            <option value="Paraná">Paraná</option>
+                                            <option value="Pernambuco">Pernambuco</option>
+                                            <option value="Piauí">Piauí</option>
+                                            <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                            <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                            <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                            <option value="Rondônia">Rondônia</option>
+                                            <option value="Roraima">Roraima</option>
+                                            <option value="Santa Catarina">Santa Catarina</option>
+                                            <option value="São Paulo">São Paulo</option>
+                                            <option value="Sergipe">Sergipe</option>
+                                            <option value="Tocantins">Tocantins</option>
+                                        </select>
+                                        <label for="floatingSelectGrid">Selecione o Estado</label>
+                                    </div>
+                                </div>
+                            </div>
+                            </p>
+                        </fieldset>
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -198,6 +271,25 @@
             </li>
         </ul>
     </main>
+
+    <footer class="a-footer bg-primary">
+        <ul>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                </svg>
+                <a href="https://github.com/artur-henrique">artur-henrique</a>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                  </svg>
+                <a href="https://www.linkedin.com/in/henrique-artur/">henrique-artur</a>
+            </li>
+        </ul>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
