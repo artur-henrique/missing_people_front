@@ -24,16 +24,7 @@ export default class FetchForm {
                 city: this.cityField.value,
                 state: this.stateField.value
             }
-
             const person = await this.fetchForm(payload);
-            // this.nameField.value = '';
-            // this.dobField.value = ''; 
-            // this.domField.value = ''; 
-            // this.cityField.value = ''; 
-            // this.stateField.value = '';
-            location.reload();
-
-            return person;
         })
 
     }
@@ -47,12 +38,7 @@ export default class FetchForm {
             method: "POST",
             body: JSON.stringify(payload)
         }
-
-        try {
-            const promisse = await fetch('http://localhost:3000/person/', config);
-            return promisse;
-        } catch (error) {
-            console.log(error);
-        }
+        const promisse = await fetch('http://localhost:3000/person/', config);
+        return promisse;
     }
 }
