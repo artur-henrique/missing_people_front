@@ -17,7 +17,7 @@ function createPerson(personName, city, state, age, imgPersonPath = imgPersonPat
 			<li class="list-group-item">${city}, ${state}</li>
 		</ul>
 		<div class="card-body">
-			<a href="#" class="card-link">Encontrado</a>
+		<button class="btn btn-danger" type="button" title="Apagar cadastro">Encontrado</button>
 		</div>
 	</div>`
 
