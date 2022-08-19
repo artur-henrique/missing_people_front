@@ -20,6 +20,11 @@
     color: black;
 }
 
+.no-display {
+    visibility: hidden;
+    display: none;
+}
+
 .a-flex {
     display: flex;
 }
