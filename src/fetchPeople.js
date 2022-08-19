@@ -1,9 +1,20 @@
 const listOfPeople = document.querySelector('.ul-people');
 const endpoint = `http://localhost:3000/person`;
 
+// Event
+listOfPeople.addEventListener('click', async (e) => {
+	if (e.target.innerHTML === 'Encontrado'){
+		const id = +e.path[2].querySelector('.no-display').innerHTML;
+		const deletedUser = await deletePerson(id);
+		location.reload();
+		return deletedUser;
+	}
+})
+
+
 let imgPersonPathAux = './img/pessoa.png';
 
-function createPerson(personName, city, state, age, imgPersonPath = imgPersonPathAux) {
+function createPerson(id, personName, city, state, age, imgPersonPath = imgPersonPathAux) {
 	const li = document.createElement('li');
 	li.classList.add('a-person-card');
 	li.innerHTML = `
@@ -11,6 +22,7 @@ function createPerson(personName, city, state, age, imgPersonPath = imgPersonPat
 		<img src="${imgPersonPath}" class="card-img-top" alt="...">
 		<div class="card-body">
 			<h5 class="card-title">${personName}</h5>
+			<div class="no-display">${id}</div>
 		</div>
 		<ul class="list-group list-group-flush">
 			<li class="list-group-item">${age} anos</li>
@@ -49,6 +61,18 @@ function calcAge(date) {
 	}
 }
 
+async function deletePerson(id) {
+	const config = {
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		method: "DELETE"
+	}
+	const promisse = await fetch(`http://localhost:3000/person/${id}`, config);
+	return promisse;
+}
+
 
 async function fetchPeople() {
 	try {
@@ -65,7 +89,7 @@ export default async function loadPeople(){
 
 	for (let person of people) {
 		const age = calcAge(person.dob);
-		const li = createPerson(person.fullName, person.city, person.state, age);
+		const li = createPerson(person.id, person.fullName, person.city, person.state, age);
 		listOfPeople.appendChild(li);
 	}
 

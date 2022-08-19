@@ -39,6 +39,7 @@ export default class FetchForm {
             body: JSON.stringify(payload)
         }
         const promisse = await fetch('http://localhost:3000/person/', config);
+		location.reload();
         return promisse;
     }
 }
